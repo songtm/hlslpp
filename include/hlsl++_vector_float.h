@@ -1186,10 +1186,10 @@ namespace hlslpp
     hlslpp_inline float4 degrees(const float4& f) { return float4(_hlslpp_mul_ps(f.vec, f4_rad2deg)); }
     
     hlslpp_inline float dot(const float& f1, const float& f2) { return f1 * f2; }
-    hlslpp_inline float1 dot(const float1& f1, const float1& f2) { return f1 * f2; }
-    hlslpp_inline float1 dot(const float2& f1, const float2& f2) { return float1(_hlslpp_dot2_ps(f1.vec, f2.vec)); }
-    hlslpp_inline float1 dot(const float3& f1, const float3& f2) { return float1(_hlslpp_dot3_ps(f1.vec, f2.vec)); }
-    hlslpp_inline float1 dot(const float4& f1, const float4& f2) { return float1(_hlslpp_dot4_ps(f1.vec, f2.vec)); }
+    hlslpp_inline float dot(const float1& f1, const float1& f2) { return f1 * f2; }
+    hlslpp_inline float dot(const float2& f1, const float2& f2) { return float1(_hlslpp_dot2_ps(f1.vec, f2.vec)); }
+    hlslpp_inline float dot(const float3& f1, const float3& f2) { return float1(_hlslpp_dot3_ps(f1.vec, f2.vec)); }
+    hlslpp_inline float dot(const float4& f1, const float4& f2) { return float1(_hlslpp_dot4_ps(f1.vec, f2.vec)); }
     
     hlslpp_inline float exp(const float& f) { return float1(_hlslpp_exp_ps(float1(f).vec)); }
     hlslpp_inline float1 exp(const float1& f) { return float1(_hlslpp_exp_ps(f.vec)); }
