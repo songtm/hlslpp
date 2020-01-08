@@ -1069,31 +1069,49 @@ namespace hlslpp
 	template<int X, int Y, int Z, int W> hlslpp_inline swizzle4<X, Y, Z, W>& operator /= (swizzle4<X, Y, Z, W>& s, const float4& f) { s = float4(s) / f; return s; }
 	template<int X, int Y, int Z, int W> hlslpp_inline swizzle4<X, Y, Z, W>& operator %= (swizzle4<X, Y, Z, W>& s, const float4& f) { s = float4(s) % f; return s; }
 
+    template<int X, int Y> bool operator == (swizzle1<X> f1, swizzle1<Y> f2) {return f1 == f2;}
+    template<int A, int B, int C, int D> float2 operator == (swizzle2<A, B> f1, swizzle2<C, D> f2) {return f1 == f2;}
+    template<int A, int B, int C, int D, int E, int F> float3 operator == (swizzle3<A, B, C> f1, swizzle3<D,E,F> f2) {return f1 == f2;}
 	hlslpp_inline float1 operator == (const float1& f1, const float1& f2) { return float1(_hlslpp_cmpeq1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float2 operator == (const float2& f1, const float2& f2) { return float2(_hlslpp_cmpeq1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float3 operator == (const float3& f1, const float3& f2) { return float3(_hlslpp_cmpeq1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float4 operator == (const float4& f1, const float4& f2) { return float4(_hlslpp_cmpeq1_ps(f1.vec, f2.vec)); }
 
+    template<int X, int Y> bool operator != (swizzle1<X> f1, swizzle1<Y> f2) {return f1 != f2;}
+    template<int A, int B, int C, int D> float2 operator != (swizzle2<A, B> f1, swizzle2<C, D> f2) {return f1 != f2;}
+    template<int A, int B, int C, int D, int E, int F> float3 operator != (swizzle3<A, B, C> f1, swizzle3<D,E,F> f2) {return f1 != f2;}
 	hlslpp_inline float1 operator != (const float1& f1, const float1& f2) { return float1(_hlslpp_cmpneq1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float2 operator != (const float2& f1, const float2& f2) { return float2(_hlslpp_cmpneq1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float3 operator != (const float3& f1, const float3& f2) { return float3(_hlslpp_cmpneq1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float4 operator != (const float4& f1, const float4& f2) { return float4(_hlslpp_cmpneq1_ps(f1.vec, f2.vec)); }
 
+    template<int X, int Y> bool operator > (swizzle1<X> f1, swizzle1<Y> f2) {return f1 > f2;}
+    template<int A, int B, int C, int D> float2 operator > (swizzle2<A, B> f1, swizzle2<C, D> f2) {return f1 > f2;}
+    template<int A, int B, int C, int D, int E, int F> float3 operator > (swizzle3<A, B, C> f1, swizzle3<D,E,F> f2) {return f1 > f2;}
 	hlslpp_inline float1 operator > (const float1& f1, const float1& f2) { return float1(_hlslpp_cmpgt1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float2 operator > (const float2& f1, const float2& f2) { return float2(_hlslpp_cmpgt1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float3 operator > (const float3& f1, const float3& f2) { return float3(_hlslpp_cmpgt1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float4 operator > (const float4& f1, const float4& f2) { return float4(_hlslpp_cmpgt1_ps(f1.vec, f2.vec)); }
 
+    template<int X, int Y> bool operator >= (swizzle1<X> f1, swizzle1<Y> f2) {return f1 >= f2;}
+    template<int A, int B, int C, int D> float2 operator >= (swizzle2<A, B> f1, swizzle2<C, D> f2) {return f1 >= f2;}
+    template<int A, int B, int C, int D, int E, int F> float3 operator >= (swizzle3<A, B, C> f1, swizzle3<D,E,F> f2) {return f1 >= f2;}
 	hlslpp_inline float1 operator >= (const float1& f1, const float1& f2) { return float1(_hlslpp_cmpge1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float2 operator >= (const float2& f1, const float2& f2) { return float2(_hlslpp_cmpge1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float3 operator >= (const float3& f1, const float3& f2) { return float3(_hlslpp_cmpge1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float4 operator >= (const float4& f1, const float4& f2) { return float4(_hlslpp_cmpge1_ps(f1.vec, f2.vec)); }
 
+    template<int X, int Y> bool operator < (swizzle1<X> f1, swizzle1<Y> f2) {return f1 < f2;}
+    template<int A, int B, int C, int D> float2 operator < (swizzle2<A, B> f1, swizzle2<C, D> f2) {return f1 < f2;}
+    template<int A, int B, int C, int D, int E, int F> float3 operator < (swizzle3<A, B, C> f1, swizzle3<D,E,F> f2) {return f1 < f2;}
 	hlslpp_inline float1 operator < (const float1& f1, const float1& f2) { return float1(_hlslpp_cmplt1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float2 operator < (const float2& f1, const float2& f2) { return float2(_hlslpp_cmplt1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float3 operator < (const float3& f1, const float3& f2) { return float3(_hlslpp_cmplt1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float4 operator < (const float4& f1, const float4& f2) { return float4(_hlslpp_cmplt1_ps(f1.vec, f2.vec)); }
 
+    template<int X, int Y> bool operator <= (swizzle1<X> f1, swizzle1<Y> f2) {return f1 <= f2;}
+    template<int A, int B, int C, int D> float2 operator <= (swizzle2<A, B> f1, swizzle2<C, D> f2) {return f1 <= f2;}
+    template<int A, int B, int C, int D, int E, int F> float3 operator <= (swizzle3<A, B, C> f1, swizzle3<D,E,F> f2) {return f1 <= f2;}
 	hlslpp_inline float1 operator <= (const float1& f1, const float1& f2) { return float1(_hlslpp_cmple1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float2 operator <= (const float2& f1, const float2& f2) { return float2(_hlslpp_cmple1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float3 operator <= (const float3& f1, const float3& f2) { return float3(_hlslpp_cmple1_ps(f1.vec, f2.vec)); }

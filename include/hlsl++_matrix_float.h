@@ -143,11 +143,11 @@ namespace hlslpp
 			float f32[4];
 		};
 	};
-
+    struct float4x4;
 	struct hlslpp_nodiscard float2x2
 	{
 		hlslpp_inline float2x2() : vec(_hlslpp_setzero_ps()) {}
-
+        explicit hlslpp_inline float2x2(const float4x4& m)  {} //just for tip no imp
 		explicit hlslpp_inline float2x2(n128 vec) : vec(vec) {}
 
 		explicit hlslpp_inline float2x2(float f00, float f01,
@@ -278,7 +278,7 @@ namespace hlslpp
 	struct hlslpp_nodiscard float3x3
 	{
 		hlslpp_inline float3x3() : vec0(_hlslpp_setzero_ps()), vec1(_hlslpp_setzero_ps()), vec2(_hlslpp_setzero_ps()) {}
-
+        explicit hlslpp_inline float3x3(const float4x4& m) {} //just for tip no imp
 		explicit hlslpp_inline float3x3(const n128 vec0, const n128 vec1, const n128 vec2) : vec0(vec0), vec1(vec1), vec2(vec2) {}
 
 		explicit hlslpp_inline float3x3(float f00, float f01, float f02,
