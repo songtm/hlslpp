@@ -1117,174 +1117,178 @@ namespace hlslpp
 	hlslpp_inline float3 operator <= (const float3& f1, const float3& f2) { return float3(_hlslpp_cmple1_ps(f1.vec, f2.vec)); }
 	hlslpp_inline float4 operator <= (const float4& f1, const float4& f2) { return float4(_hlslpp_cmple1_ps(f1.vec, f2.vec)); }
 
-	hlslpp_inline float1 abs(const float1& f) { return float1(_hlslpp_abs_ps(f.vec)); }
-	hlslpp_inline float2 abs(const float2& f) { return float2(_hlslpp_abs_ps(f.vec)); }
-	hlslpp_inline float3 abs(const float3& f) { return float3(_hlslpp_abs_ps(f.vec)); }
-	hlslpp_inline float4 abs(const float4& f) { return float4(_hlslpp_abs_ps(f.vec)); }
 
-    
-    hlslpp_inline float acos(const float& f) { return float1(_hlslpp_acos_ps(float1(f).vec)); }
+    hlslpp_inline float1 abs(const float1& f) { return float1(_hlslpp_abs_ps(f.vec)); }
+    hlslpp_inline float2 abs(const float2& f) { return float2(_hlslpp_abs_ps(f.vec)); }
+    hlslpp_inline float3 abs(const float3& f) { return float3(_hlslpp_abs_ps(f.vec)); }
+    hlslpp_inline float4 abs(const float4& f) { return float4(_hlslpp_abs_ps(f.vec)); }
+
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float acos(const T& f) { return float1(_hlslpp_acos_ps(float1(f).vec)); }
     hlslpp_inline float1 acos(const float1& f) { return float1(_hlslpp_acos_ps(f.vec)); }
     hlslpp_inline float2 acos(const float2& f) { return float2(_hlslpp_acos_ps(f.vec)); }
     hlslpp_inline float3 acos(const float3& f) { return float3(_hlslpp_acos_ps(f.vec)); }
     hlslpp_inline float4 acos(const float4& f) { return float4(_hlslpp_acos_ps(f.vec)); }
-    
-    hlslpp_inline bool all(const float& f) { return _hlslpp_all1_ps(float1(f).vec); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline bool all(const T& f) { return _hlslpp_all1_ps(float1(f).vec); }
     hlslpp_inline bool all(const float1& f) { return _hlslpp_all1_ps(f.vec); }
     hlslpp_inline bool all(const float2& f) { return _hlslpp_all2_ps(f.vec); }
     hlslpp_inline bool all(const float3& f) { return _hlslpp_all3_ps(f.vec); }
     hlslpp_inline bool all(const float4& f) { return _hlslpp_all4_ps(f.vec); }
-    
-    hlslpp_inline bool any(const float& f) { return _hlslpp_any1_ps(float1(f).vec); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline bool any(const T& f) { return _hlslpp_any1_ps(float1(f).vec); }
     hlslpp_inline bool any(const float1& f) { return _hlslpp_any1_ps(f.vec); }
     hlslpp_inline bool any(const float2& f) { return _hlslpp_any2_ps(f.vec); }
     hlslpp_inline bool any(const float3& f) { return _hlslpp_any3_ps(f.vec); }
     hlslpp_inline bool any(const float4& f) { return _hlslpp_any4_ps(f.vec); }
-    
-    hlslpp_inline float asin(const float& f) { return float1(_hlslpp_asin_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float asin(const T& f) { return float1(_hlslpp_asin_ps(float1(f).vec)); }
     hlslpp_inline float1 asin(const float1& f) { return float1(_hlslpp_asin_ps(f.vec)); }
     hlslpp_inline float2 asin(const float2& f) { return float2(_hlslpp_asin_ps(f.vec)); }
     hlslpp_inline float3 asin(const float3& f) { return float3(_hlslpp_asin_ps(f.vec)); }
     hlslpp_inline float4 asin(const float4& f) { return float4(_hlslpp_asin_ps(f.vec)); }
-    
-    hlslpp_inline float atan(const float& f) { return float1(_hlslpp_atan_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float atan(const T& f) { return float1(_hlslpp_atan_ps(float1(f).vec)); }
     hlslpp_inline float1 atan(const float1& f) { return float1(_hlslpp_atan_ps(f.vec)); }
     hlslpp_inline float2 atan(const float2& f) { return float2(_hlslpp_atan_ps(f.vec)); }
     hlslpp_inline float3 atan(const float3& f) { return float3(_hlslpp_atan_ps(f.vec)); }
     hlslpp_inline float4 atan(const float4& f) { return float4(_hlslpp_atan_ps(f.vec)); }
-    
-    hlslpp_inline float ceil(const float& f) { return float1(_hlslpp_ceil_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float ceil(const T& f) { return float1(_hlslpp_ceil_ps(float1(f).vec)); }
     hlslpp_inline float1 ceil(const float1& f) { return float1(_hlslpp_ceil_ps(f.vec)); }
     hlslpp_inline float2 ceil(const float2& f) { return float2(_hlslpp_ceil_ps(f.vec)); }
     hlslpp_inline float3 ceil(const float3& f) { return float3(_hlslpp_ceil_ps(f.vec)); }
     hlslpp_inline float4 ceil(const float4& f) { return float4(_hlslpp_ceil_ps(f.vec)); }
-    
-    hlslpp_inline float clamp(const float& f, const float& minf, const float& maxf) { return float1(_hlslpp_clamp_ps(float1(f).vec, float1(minf).vec, float1(maxf).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float clamp(const T& f, const T& minf, const T& maxf) { return float1(_hlslpp_clamp_ps(float1(f).vec, float1(minf).vec, float1(maxf).vec)); }
     hlslpp_inline float1 clamp(const float1& f, const float1& minf, const float1& maxf) { return float1(_hlslpp_clamp_ps(f.vec, minf.vec, maxf.vec)); }
     hlslpp_inline float2 clamp(const float2& f, const float2& minf, const float2& maxf) { return float2(_hlslpp_clamp_ps(f.vec, minf.vec, maxf.vec)); }
     hlslpp_inline float3 clamp(const float3& f, const float3& minf, const float3& maxf) { return float3(_hlslpp_clamp_ps(f.vec, minf.vec, maxf.vec)); }
     hlslpp_inline float4 clamp(const float4& f, const float4& minf, const float4& maxf) { return float4(_hlslpp_clamp_ps(f.vec, minf.vec, maxf.vec)); }
-    
-    hlslpp_inline float cos(const float& f) { return float1(_hlslpp_cos_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float cos(const T& f) { return float1(_hlslpp_cos_ps(float1(f).vec)); }
     hlslpp_inline float1 cos(const float1& f) { return float1(_hlslpp_cos_ps(f.vec)); }
     hlslpp_inline float2 cos(const float2& f) { return float2(_hlslpp_cos_ps(f.vec)); }
     hlslpp_inline float3 cos(const float3& f) { return float3(_hlslpp_cos_ps(f.vec)); }
     hlslpp_inline float4 cos(const float4& f) { return float4(_hlslpp_cos_ps(f.vec)); }
-    
-    hlslpp_inline float cosh(const float& f) { return float1(_hlslpp_cosh_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float cosh(const T& f) { return float1(_hlslpp_cosh_ps(float1(f).vec)); }
     hlslpp_inline float1 cosh(const float1& f) { return float1(_hlslpp_cosh_ps(f.vec)); }
     hlslpp_inline float2 cosh(const float2& f) { return float2(_hlslpp_cosh_ps(f.vec)); }
     hlslpp_inline float3 cosh(const float3& f) { return float3(_hlslpp_cosh_ps(f.vec)); }
     hlslpp_inline float4 cosh(const float4& f) { return float4(_hlslpp_cosh_ps(f.vec)); }
-    
+
     hlslpp_inline float3 cross(const float3& f1, const float3& f2) { return float3(_hlslpp_cross_ps(f1.vec, f2.vec)); }
-    
-    hlslpp_inline float degrees(const float& f) { return float1(_hlslpp_mul_ps(float1(f).vec, f4_rad2deg)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float degrees(const T& f) { return float1(_hlslpp_mul_ps(float1(f).vec, f4_rad2deg)); }
     hlslpp_inline float1 degrees(const float1& f) { return float1(_hlslpp_mul_ps(f.vec, f4_rad2deg)); }
     hlslpp_inline float2 degrees(const float2& f) { return float2(_hlslpp_mul_ps(f.vec, f4_rad2deg)); }
     hlslpp_inline float3 degrees(const float3& f) { return float3(_hlslpp_mul_ps(f.vec, f4_rad2deg)); }
     hlslpp_inline float4 degrees(const float4& f) { return float4(_hlslpp_mul_ps(f.vec, f4_rad2deg)); }
-    
-    hlslpp_inline float dot(const float& f1, const float& f2) { return f1 * f2; }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float dot(const T& f1, const T& f2) { return f1 * f2; }
     hlslpp_inline float dot(const float1& f1, const float1& f2) { return f1 * f2; }
     hlslpp_inline float dot(const float2& f1, const float2& f2) { return float1(_hlslpp_dot2_ps(f1.vec, f2.vec)); }
     hlslpp_inline float dot(const float3& f1, const float3& f2) { return float1(_hlslpp_dot3_ps(f1.vec, f2.vec)); }
     hlslpp_inline float dot(const float4& f1, const float4& f2) { return float1(_hlslpp_dot4_ps(f1.vec, f2.vec)); }
-    
-    hlslpp_inline float exp(const float& f) { return float1(_hlslpp_exp_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float exp(const T& f) { return float1(_hlslpp_exp_ps(float1(f).vec)); }
     hlslpp_inline float1 exp(const float1& f) { return float1(_hlslpp_exp_ps(f.vec)); }
     hlslpp_inline float2 exp(const float2& f) { return float2(_hlslpp_exp_ps(f.vec)); }
     hlslpp_inline float3 exp(const float3& f) { return float3(_hlslpp_exp_ps(f.vec)); }
     hlslpp_inline float4 exp(const float4& f) { return float4(_hlslpp_exp_ps(f.vec)); }
-    
-    hlslpp_inline float exp2(const float& f) { return float1(_hlslpp_exp2_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float exp2(const T& f) { return float1(_hlslpp_exp2_ps(float1(f).vec)); }
     hlslpp_inline float1 exp2(const float1& f) { return float1(_hlslpp_exp2_ps(f.vec)); }
     hlslpp_inline float2 exp2(const float2& f) { return float2(_hlslpp_exp2_ps(f.vec)); }
     hlslpp_inline float3 exp2(const float3& f) { return float3(_hlslpp_exp2_ps(f.vec)); }
     hlslpp_inline float4 exp2(const float4& f) { return float4(_hlslpp_exp2_ps(f.vec)); }
-    
-    hlslpp_inline float floor(const float& f) { return float1(_hlslpp_floor_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float floor(const T& f) { return float1(_hlslpp_floor_ps(float1(f).vec)); }
     hlslpp_inline float1 floor(const float1& f) { return float1(_hlslpp_floor_ps(f.vec)); }
     hlslpp_inline float2 floor(const float2& f) { return float2(_hlslpp_floor_ps(f.vec)); }
     hlslpp_inline float3 floor(const float3& f) { return float3(_hlslpp_floor_ps(f.vec)); }
     hlslpp_inline float4 floor(const float4& f) { return float4(_hlslpp_floor_ps(f.vec)); }
-    
-    hlslpp_inline float fmod(const float& f1, const float& f2) { return float1(_hlslpp_fmod_ps(float1(f1).vec, float1(f2).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float fmod(const T& f1, const T& f2) { return float1(_hlslpp_fmod_ps(float1(f1).vec, float1(f2).vec)); }
     hlslpp_inline float1 fmod(const float1& f1, const float1& f2) { return float1(_hlslpp_fmod_ps(f1.vec, f2.vec)); }
     hlslpp_inline float2 fmod(const float2& f1, const float2& f2) { return float2(_hlslpp_fmod_ps(f1.vec, f2.vec)); }
     hlslpp_inline float3 fmod(const float3& f1, const float3& f2) { return float3(_hlslpp_fmod_ps(f1.vec, f2.vec)); }
     hlslpp_inline float4 fmod(const float4& f1, const float4& f2) { return float4(_hlslpp_fmod_ps(f1.vec, f2.vec)); }
-    
+
     // A note on negative numbers. Contrary to intuition, frac(-0.75) != 0.75,
     // but is actually frac(-0.75) == 0.25 This is because hlsl defines frac
-    
-    hlslpp_inline float frac(const float& f) { return float1(_hlslpp_frac_ps(float1(f).vec)); }// as frac(x) = x - floor(x)
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float frac(const T& f) { return float1(_hlslpp_frac_ps(float1(f).vec)); }// as frac(x) = x - floor(x)
     hlslpp_inline float1 frac(const float1& f) { return float1(_hlslpp_frac_ps(f.vec)); }
     hlslpp_inline float2 frac(const float2& f) { return float2(_hlslpp_frac_ps(f.vec)); }
     hlslpp_inline float3 frac(const float3& f) { return float3(_hlslpp_frac_ps(f.vec)); }
     hlslpp_inline float4 frac(const float4& f) { return float4(_hlslpp_frac_ps(f.vec)); }
-    
-    hlslpp_inline float isfinite(const float& f) { return float1(_hlslpp_andnot_ps(_hlslpp_isfinite_ps(float1(f).vec), f4_1)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float isfinite(const T& f) { return float1(_hlslpp_andnot_ps(_hlslpp_isfinite_ps(float1(f).vec), f4_1)); }
     hlslpp_inline float1 isfinite(const float1& f) { return float1(_hlslpp_andnot_ps(_hlslpp_isfinite_ps(f.vec), f4_1)); }
     hlslpp_inline float2 isfinite(const float2& f) { return float2(_hlslpp_andnot_ps(_hlslpp_isfinite_ps(f.vec), f4_1)); }
     hlslpp_inline float3 isfinite(const float3& f) { return float3(_hlslpp_andnot_ps(_hlslpp_isfinite_ps(f.vec), f4_1)); }
     hlslpp_inline float4 isfinite(const float4& f) { return float4(_hlslpp_andnot_ps(_hlslpp_isfinite_ps(f.vec), f4_1)); }
-    
-    hlslpp_inline float isinf(const float& f) { return float1(_hlslpp_and_ps(_hlslpp_isinf_ps(float1(f).vec), f4_1)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float isinf(const T& f) { return float1(_hlslpp_and_ps(_hlslpp_isinf_ps(float1(f).vec), f4_1)); }
     hlslpp_inline float1 isinf(const float1& f) { return float1(_hlslpp_and_ps(_hlslpp_isinf_ps(f.vec), f4_1)); }
     hlslpp_inline float2 isinf(const float2& f) { return float2(_hlslpp_and_ps(_hlslpp_isinf_ps(f.vec), f4_1)); }
     hlslpp_inline float3 isinf(const float3& f) { return float3(_hlslpp_and_ps(_hlslpp_isinf_ps(f.vec), f4_1)); }
     hlslpp_inline float4 isinf(const float4& f) { return float4(_hlslpp_and_ps(_hlslpp_isinf_ps(f.vec), f4_1)); }
-    
-    hlslpp_inline float isnan(const float& f) { return float1(_hlslpp_and_ps(_hlslpp_isnan_ps(float1(f).vec), f4_1)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float isnan(const T& f) { return float1(_hlslpp_and_ps(_hlslpp_isnan_ps(float1(f).vec), f4_1)); }
     hlslpp_inline float1 isnan(const float1& f) { return float1(_hlslpp_and_ps(_hlslpp_isnan_ps(f.vec), f4_1)); }
     hlslpp_inline float2 isnan(const float2& f) { return float2(_hlslpp_and_ps(_hlslpp_isnan_ps(f.vec), f4_1)); }
     hlslpp_inline float3 isnan(const float3& f) { return float3(_hlslpp_and_ps(_hlslpp_isnan_ps(f.vec), f4_1)); }
     hlslpp_inline float4 isnan(const float4& f) { return float4(_hlslpp_and_ps(_hlslpp_isnan_ps(f.vec), f4_1)); }
-    
-    hlslpp_inline float length(const float& f) { return f; }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float length(const T& f) { return f; }
     hlslpp_inline float1 length(const float1& f) { return f; }
     hlslpp_inline float1 length(const float2& f) { return float1(_hlslpp_sqrt_ps(_hlslpp_dot2_ps(f.vec, f.vec))); }
     hlslpp_inline float1 length(const float3& f) { return float1(_hlslpp_sqrt_ps(_hlslpp_dot3_ps(f.vec, f.vec))); }
     hlslpp_inline float1 length(const float4& f) { return float1(_hlslpp_sqrt_ps(_hlslpp_dot4_ps(f.vec, f.vec))); }
-    
-    hlslpp_inline float lerp(const float& f1, const float& f2, const float& a) { return float1(_hlslpp_lerp_ps(float1(f1).vec, float1(f2).vec, float1(a).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float lerp(const T& f1, const T& f2, const T& a) { return float1(_hlslpp_lerp_ps(float1(f1).vec, float1(f2).vec, float1(a).vec)); }
     hlslpp_inline float1 lerp(const float1& f1, const float1& f2, const float1& a) { return float1(_hlslpp_lerp_ps(f1.vec, f2.vec, a.vec)); }
     hlslpp_inline float2 lerp(const float2& f1, const float2& f2, const float2& a) { return float2(_hlslpp_lerp_ps(f1.vec, f2.vec, a.vec)); }
     hlslpp_inline float3 lerp(const float3& f1, const float3& f2, const float3& a) { return float3(_hlslpp_lerp_ps(f1.vec, f2.vec, a.vec)); }
     hlslpp_inline float4 lerp(const float4& f1, const float4& f2, const float4& a) { return float4(_hlslpp_lerp_ps(f1.vec, f2.vec, a.vec)); }
-    
-    hlslpp_inline float log(const float& f) { return float1(_hlslpp_log_ps(float1(f).vec)); }
+    hlslpp_inline float2 lerp(const float2& f1, const float2& f2, const float& a) { return float2(_hlslpp_lerp_ps(f1.vec, f2.vec, float1(a).vec)); }
+    hlslpp_inline float3 lerp(const float3& f1, const float3& f2, const float& a) { return float3(_hlslpp_lerp_ps(f1.vec, f2.vec, float1(a).vec)); }
+    hlslpp_inline float4 lerp(const float4& f1, const float4& f2, const float& a) { return float4(_hlslpp_lerp_ps(f1.vec, f2.vec, float1(a).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float log(const T& f) { return float1(_hlslpp_log_ps(float1(f).vec)); }
     hlslpp_inline float1 log(const float1& f) { return float1(_hlslpp_log_ps(f.vec)); }
     hlslpp_inline float2 log(const float2& f) { return float2(_hlslpp_log_ps(f.vec)); }
     hlslpp_inline float3 log(const float3& f) { return float3(_hlslpp_log_ps(f.vec)); }
     hlslpp_inline float4 log(const float4& f) { return float4(_hlslpp_log_ps(f.vec)); }
-    
-    hlslpp_inline float log2(const float& f) { return float1(_hlslpp_log2_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float log2(const T& f) { return float1(_hlslpp_log2_ps(float1(f).vec)); }
     hlslpp_inline float1 log2(const float1& f) { return float1(_hlslpp_log2_ps(f.vec)); }
     hlslpp_inline float2 log2(const float2& f) { return float2(_hlslpp_log2_ps(f.vec)); }
     hlslpp_inline float3 log2(const float3& f) { return float3(_hlslpp_log2_ps(f.vec)); }
     hlslpp_inline float4 log2(const float4& f) { return float4(_hlslpp_log2_ps(f.vec)); }
-    
-    hlslpp_inline float log10(const float& f) { return float1(_hlslpp_log10_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float log10(const T& f) { return float1(_hlslpp_log10_ps(float1(f).vec)); }
     hlslpp_inline float1 log10(const float1& f) { return float1(_hlslpp_log10_ps(f.vec)); }
     hlslpp_inline float2 log10(const float2& f) { return float2(_hlslpp_log10_ps(f.vec)); }
     hlslpp_inline float3 log10(const float3& f) { return float3(_hlslpp_log10_ps(f.vec)); }
     hlslpp_inline float4 log10(const float4& f) { return float4(_hlslpp_log10_ps(f.vec)); }
-    
-    hlslpp_inline float min(const float& f1, const float& f2) { return float1(_hlslpp_min_ps(float1(f1).vec, float1(f2).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float min(const T& f1, const T& f2) { return float1(_hlslpp_min_ps(float1(f1).vec, float1(f2).vec)); }
     hlslpp_inline float1 min(const float1& f1, const float1& f2) { return float1(_hlslpp_min_ps(f1.vec, f2.vec)); }
     hlslpp_inline float2 min(const float2& f1, const float2& f2) { return float2(_hlslpp_min_ps(f1.vec, f2.vec)); }
     hlslpp_inline float3 min(const float3& f1, const float3& f2) { return float3(_hlslpp_min_ps(f1.vec, f2.vec)); }
     hlslpp_inline float4 min(const float4& f1, const float4& f2) { return float4(_hlslpp_min_ps(f1.vec, f2.vec)); }
-    
-    hlslpp_inline float mad(const float& f1, const float& f2, const float& f3) { return float1(_hlslpp_madd_ps(float1(f1).vec, float1(f2).vec, float1(f3).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float mad(const T& f1, const T& f2, const T& f3) { return float1(_hlslpp_madd_ps(float1(f1).vec, float1(f2).vec, float1(f3).vec)); }
     hlslpp_inline float1 mad(const float1& f1, const float1& f2, const float1& f3) { return float1(_hlslpp_madd_ps(f1.vec, f2.vec, f3.vec)); }
     hlslpp_inline float2 mad(const float2& f1, const float2& f2, const float2& f3) { return float2(_hlslpp_madd_ps(f1.vec, f2.vec, f3.vec)); }
     hlslpp_inline float3 mad(const float3& f1, const float3& f2, const float3& f3) { return float3(_hlslpp_madd_ps(f1.vec, f2.vec, f3.vec)); }
     hlslpp_inline float4 mad(const float4& f1, const float4& f2, const float4& f3) { return float4(_hlslpp_madd_ps(f1.vec, f2.vec, f3.vec)); }
-    
-    hlslpp_inline float max(const float& f1, const float& f2) { return float1(_hlslpp_max_ps(float1(f1).vec, float1(f2).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float max(const T& f1, const T& f2) { return float1(_hlslpp_max_ps(float1(f1).vec, float1(f2).vec)); }
     hlslpp_inline float1 max(const float1& f1, const float1& f2) { return float1(_hlslpp_max_ps(f1.vec, f2.vec)); }
     hlslpp_inline float2 max(const float2& f1, const float2& f2) { return float2(_hlslpp_max_ps(f1.vec, f2.vec)); }
     hlslpp_inline float3 max(const float3& f1, const float3& f2) { return float3(_hlslpp_max_ps(f1.vec, f2.vec)); }
@@ -1322,114 +1326,114 @@ namespace hlslpp
 		return float4(signedFrac);
 	}
 
-    
-    hlslpp_inline float normalize(const float&/* f*/) { return float1(1.0f); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float normalize(const T&/* f*/) { return float1(1.0f); }
     hlslpp_inline float1 normalize(const float1&/* f*/) { return float1(1.0f); }
     hlslpp_inline float2 normalize(const float2& f) { return float2(_hlslpp_div_ps(f.vec, _hlslpp_perm_xxxx_ps(_hlslpp_sqrt_ps(_hlslpp_dot2_ps(f.vec, f.vec))))); }
     hlslpp_inline float3 normalize(const float3& f) { return float3(_hlslpp_div_ps(f.vec, _hlslpp_perm_xxxx_ps(_hlslpp_sqrt_ps(_hlslpp_dot3_ps(f.vec, f.vec))))); }
     hlslpp_inline float4 normalize(const float4& f) { return float4(_hlslpp_div_ps(f.vec, _hlslpp_perm_xxxx_ps(_hlslpp_sqrt_ps(_hlslpp_dot4_ps(f.vec, f.vec))))); }
-    
-    hlslpp_inline float pow(const float& f1, const float& f2) { return float1(_hlslpp_exp2_ps(_hlslpp_mul_ps(float1(f2).vec, _hlslpp_log2_ps(float1(f1).vec)))); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float pow(const T& f1, const T& f2) { return float1(_hlslpp_exp2_ps(_hlslpp_mul_ps(float1(f2).vec, _hlslpp_log2_ps(float1(f1).vec)))); }
     hlslpp_inline float1 pow(const float1& f1, const float1& f2) { return float1(_hlslpp_exp2_ps(_hlslpp_mul_ps(f2.vec, _hlslpp_log2_ps(f1.vec)))); }
     hlslpp_inline float2 pow(const float2& f1, const float2& f2) { return float2(_hlslpp_exp2_ps(_hlslpp_mul_ps(f2.vec, _hlslpp_log2_ps(f1.vec)))); }
     hlslpp_inline float3 pow(const float3& f1, const float3& f2) { return float3(_hlslpp_exp2_ps(_hlslpp_mul_ps(f2.vec, _hlslpp_log2_ps(f1.vec)))); }
     hlslpp_inline float4 pow(const float4& f1, const float4& f2) { return float4(_hlslpp_exp2_ps(_hlslpp_mul_ps(f2.vec, _hlslpp_log2_ps(f1.vec)))); }
-    
-    hlslpp_inline float radians(const float& f) { return float1(_hlslpp_mul_ps(float1(f).vec, f4_deg2rad)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float radians(const T& f) { return float1(_hlslpp_mul_ps(float1(f).vec, f4_deg2rad)); }
     hlslpp_inline float1 radians(const float1& f) { return float1(_hlslpp_mul_ps(f.vec, f4_deg2rad)); }
     hlslpp_inline float2 radians(const float2& f) { return float2(_hlslpp_mul_ps(f.vec, f4_deg2rad)); }
     hlslpp_inline float3 radians(const float3& f) { return float3(_hlslpp_mul_ps(f.vec, f4_deg2rad)); }
     hlslpp_inline float4 radians(const float4& f) { return float4(_hlslpp_mul_ps(f.vec, f4_deg2rad)); }
-    
-    hlslpp_inline float rcp(const float& f) { return float1(_hlslpp_rcp_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float rcp(const T& f) { return float1(_hlslpp_rcp_ps(float1(f).vec)); }
     hlslpp_inline float1 rcp(const float1& f) { return float1(_hlslpp_rcp_ps(f.vec)); }
     hlslpp_inline float2 rcp(const float2& f) { return float2(_hlslpp_rcp_ps(f.vec)); }
     hlslpp_inline float3 rcp(const float3& f) { return float3(_hlslpp_rcp_ps(f.vec)); }
     hlslpp_inline float4 rcp(const float4& f) { return float4(_hlslpp_rcp_ps(f.vec)); }
-    
+
     hlslpp_inline float1 reflect(const float1& i, const float1& n) { return float1(_hlslpp_reflect1_ps(i.vec, n.vec)); }
     hlslpp_inline float2 reflect(const float2& i, const float2& n) { return float2(_hlslpp_reflect2_ps(i.vec, n.vec)); }
     hlslpp_inline float3 reflect(const float3& i, const float3& n) { return float3(_hlslpp_reflect3_ps(i.vec, n.vec)); }
     hlslpp_inline float4 reflect(const float4& i, const float4& n) { return float4(_hlslpp_reflect4_ps(i.vec, n.vec)); }
-    
+
     hlslpp_inline float1 refract(const float1& i, const float1& n, const float1& ior) { return float1(_hlslpp_refract1_ps(i.vec, n.vec, ior.vec)); }
     hlslpp_inline float2 refract(const float2& i, const float2& n, const float1& ior) { return float2(_hlslpp_refract2_ps(i.vec, n.vec, ior.vec)); }
     hlslpp_inline float3 refract(const float3& i, const float3& n, const float1& ior) { return float3(_hlslpp_refract3_ps(i.vec, n.vec, ior.vec)); }
     hlslpp_inline float4 refract(const float4& i, const float4& n, const float1& ior) { return float4(_hlslpp_refract4_ps(i.vec, n.vec, ior.vec)); }
-    
-    hlslpp_inline float rsqrt(const float& f) { return float1(_hlslpp_rsqrt_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float rsqrt(const T& f) { return float1(_hlslpp_rsqrt_ps(float1(f).vec)); }
     hlslpp_inline float1 rsqrt(const float1& f) { return float1(_hlslpp_rsqrt_ps(f.vec)); }
     hlslpp_inline float2 rsqrt(const float2& f) { return float2(_hlslpp_rsqrt_ps(f.vec)); }
     hlslpp_inline float3 rsqrt(const float3& f) { return float3(_hlslpp_rsqrt_ps(f.vec)); }
     hlslpp_inline float4 rsqrt(const float4& f) { return float4(_hlslpp_rsqrt_ps(f.vec)); }
-    
-    hlslpp_inline float round(const float& f) { return float1(_hlslpp_round_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float round(const T& f) { return float1(_hlslpp_round_ps(float1(f).vec)); }
     hlslpp_inline float1 round(const float1& f) { return float1(_hlslpp_round_ps(f.vec)); }
     hlslpp_inline float2 round(const float2& f) { return float2(_hlslpp_round_ps(f.vec)); }
     hlslpp_inline float3 round(const float3& f) { return float3(_hlslpp_round_ps(f.vec)); }
     hlslpp_inline float4 round(const float4& f) { return float4(_hlslpp_round_ps(f.vec)); }
-    
-    hlslpp_inline float saturate(const float& f) { return float1(_hlslpp_sat_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float saturate(const T& f) { return float1(_hlslpp_sat_ps(float1(f).vec)); }
     hlslpp_inline float1 saturate(const float1& f) { return float1(_hlslpp_sat_ps(f.vec)); }
     hlslpp_inline float2 saturate(const float2& f) { return float2(_hlslpp_sat_ps(f.vec)); }
     hlslpp_inline float3 saturate(const float3& f) { return float3(_hlslpp_sat_ps(f.vec)); }
     hlslpp_inline float4 saturate(const float4& f) { return float4(_hlslpp_sat_ps(f.vec)); }
-    
-    hlslpp_inline float sign(const float& f) { return float1(_hlslpp_sign_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float sign(const T& f) { return float1(_hlslpp_sign_ps(float1(f).vec)); }
     hlslpp_inline float1 sign(const float1& f) { return float1(_hlslpp_sign_ps(f.vec)); }
     hlslpp_inline float2 sign(const float2& f) { return float2(_hlslpp_sign_ps(f.vec)); }
     hlslpp_inline float3 sign(const float3& f) { return float3(_hlslpp_sign_ps(f.vec)); }
     hlslpp_inline float4 sign(const float4& f) { return float4(_hlslpp_sign_ps(f.vec)); }
-    
-    hlslpp_inline float sin(const float& f) { return float1(_hlslpp_sin_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float sin(const T& f) { return float1(_hlslpp_sin_ps(float1(f).vec)); }
     hlslpp_inline float1 sin(const float1& f) { return float1(_hlslpp_sin_ps(f.vec)); }
     hlslpp_inline float2 sin(const float2& f) { return float2(_hlslpp_sin_ps(f.vec)); }
     hlslpp_inline float3 sin(const float3& f) { return float3(_hlslpp_sin_ps(f.vec)); }
     hlslpp_inline float4 sin(const float4& f) { return float4(_hlslpp_sin_ps(f.vec)); }
-    
-    hlslpp_inline void sincos(const float& f, float& s, float& c) { s = float1(_hlslpp_sin_ps(float1(f).vec)); c = float1(_hlslpp_cos_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline void sincos(const T& f, T& s, T& c) { s = float1(_hlslpp_sin_ps(float1(f).vec)); c = float1(_hlslpp_cos_ps(float1(f).vec)); }
     hlslpp_inline void sincos(const float1& f, float1& s, float1& c) { s = float1(_hlslpp_sin_ps(f.vec)); c = float1(_hlslpp_cos_ps(f.vec)); }
     hlslpp_inline void sincos(const float2& f, float2& s, float2& c) { s = float2(_hlslpp_sin_ps(f.vec)); c = float2(_hlslpp_cos_ps(f.vec)); }
     hlslpp_inline void sincos(const float3& f, float3& s, float3& c) { s = float3(_hlslpp_sin_ps(f.vec)); c = float3(_hlslpp_cos_ps(f.vec)); }
     hlslpp_inline void sincos(const float4& f, float4& s, float4& c) { s = float4(_hlslpp_sin_ps(f.vec)); c = float4(_hlslpp_cos_ps(f.vec)); }
-    
-    hlslpp_inline float sinh(const float& f) { return float1(_hlslpp_sinh_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float sinh(const T& f) { return float1(_hlslpp_sinh_ps(float1(f).vec)); }
     hlslpp_inline float1 sinh(const float1& f) { return float1(_hlslpp_sinh_ps(f.vec)); }
     hlslpp_inline float2 sinh(const float2& f) { return float2(_hlslpp_sinh_ps(f.vec)); }
     hlslpp_inline float3 sinh(const float3& f) { return float3(_hlslpp_sinh_ps(f.vec)); }
     hlslpp_inline float4 sinh(const float4& f) { return float4(_hlslpp_sinh_ps(f.vec)); }
-    
-    hlslpp_inline float smoothstep(const float& f1, const float& f2, const float& a) { return float1(_hlslpp_smoothstep_ps(float1(f1).vec, float1(f2).vec, float1(a).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float smoothstep(const T& f1, const T& f2, const T& a) { return float1(_hlslpp_smoothstep_ps(float1(f1).vec, float1(f2).vec, float1(a).vec)); }
     hlslpp_inline float1 smoothstep(const float1& f1, const float1& f2, const float1& a) { return float1(_hlslpp_smoothstep_ps(f1.vec, f2.vec, a.vec)); }
     hlslpp_inline float2 smoothstep(const float2& f1, const float2& f2, const float2& a) { return float2(_hlslpp_smoothstep_ps(f1.vec, f2.vec, a.vec)); }
     hlslpp_inline float3 smoothstep(const float3& f1, const float3& f2, const float3& a) { return float3(_hlslpp_smoothstep_ps(f1.vec, f2.vec, a.vec)); }
     hlslpp_inline float4 smoothstep(const float4& f1, const float4& f2, const float4& a) { return float4(_hlslpp_smoothstep_ps(f1.vec, f2.vec, a.vec)); }
-    
-    hlslpp_inline float sqrt(const float& f) { return float1(_hlslpp_sqrt_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float sqrt(const T& f) { return float1(_hlslpp_sqrt_ps(float1(f).vec)); }
     hlslpp_inline float1 sqrt(const float1& f) { return float1(_hlslpp_sqrt_ps(f.vec)); }
     hlslpp_inline float2 sqrt(const float2& f) { return float2(_hlslpp_sqrt_ps(f.vec)); }
     hlslpp_inline float3 sqrt(const float3& f) { return float3(_hlslpp_sqrt_ps(f.vec)); }
     hlslpp_inline float4 sqrt(const float4& f) { return float4(_hlslpp_sqrt_ps(f.vec)); }
-    
-    hlslpp_inline float step(const float& f1, const float& f2) { return float1(_hlslpp_step_ps(float1(f1).vec, float1(f2).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float step(const T& f1, const T& f2) { return float1(_hlslpp_step_ps(float1(f1).vec, float1(f2).vec)); }
     hlslpp_inline float1 step(const float1& f1, const float1& f2) { return float1(_hlslpp_step_ps(f1.vec, f2.vec)); }
     hlslpp_inline float2 step(const float2& f1, const float2& f2) { return float2(_hlslpp_step_ps(f1.vec, f2.vec)); }
     hlslpp_inline float3 step(const float3& f1, const float3& f2) { return float3(_hlslpp_step_ps(f1.vec, f2.vec)); }
     hlslpp_inline float4 step(const float4& f1, const float4& f2) { return float4(_hlslpp_step_ps(f1.vec, f2.vec)); }
-    
-    hlslpp_inline float tan(const float& f) { return float1(_hlslpp_tan_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float tan(const T& f) { return float1(_hlslpp_tan_ps(float1(f).vec)); }
     hlslpp_inline float1 tan(const float1& f) { return float1(_hlslpp_tan_ps(f.vec)); }
     hlslpp_inline float2 tan(const float2& f) { return float2(_hlslpp_tan_ps(f.vec)); }
     hlslpp_inline float3 tan(const float3& f) { return float3(_hlslpp_tan_ps(f.vec)); }
     hlslpp_inline float4 tan(const float4& f) { return float4(_hlslpp_tan_ps(f.vec)); }
-    
-    hlslpp_inline float tanh(const float& f) { return float1(_hlslpp_tanh_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float tanh(const T& f) { return float1(_hlslpp_tanh_ps(float1(f).vec)); }
     hlslpp_inline float1 tanh(const float1& f) { return float1(_hlslpp_tanh_ps(f.vec)); }
     hlslpp_inline float2 tanh(const float2& f) { return float2(_hlslpp_tanh_ps(f.vec)); }
     hlslpp_inline float3 tanh(const float3& f) { return float3(_hlslpp_tanh_ps(f.vec)); }
     hlslpp_inline float4 tanh(const float4& f) { return float4(_hlslpp_tanh_ps(f.vec)); }
-    
-    hlslpp_inline float trunc(const float& f) { return float1(_hlslpp_trunc_ps(float1(f).vec)); }
+
+    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float trunc(const T& f) { return float1(_hlslpp_trunc_ps(float1(f).vec)); }
     hlslpp_inline float1 trunc(const float1& f) { return float1(_hlslpp_trunc_ps(f.vec)); }
     hlslpp_inline float2 trunc(const float2& f) { return float2(_hlslpp_trunc_ps(f.vec)); }
     hlslpp_inline float3 trunc(const float3& f) { return float3(_hlslpp_trunc_ps(f.vec)); }
