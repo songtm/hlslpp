@@ -313,6 +313,7 @@ namespace hlslpp
 		hlslpp_inline int2(const int2& i) : vec(i.vec) {}
 		explicit hlslpp_inline int2(n128i vec) : vec(vec) {}
 		explicit hlslpp_inline int2(const int1& i) : vec(_hlslpp_perm_xxxx_epi32(i.vec)) {}
+        explicit hlslpp_inline int2(const float2& i) : vec(_hlslpp_perm_xxxx_epi32(i.vec)) {}
 
 		hlslpp_inline int2(int32_t i) : vec(_hlslpp_set_epi32(i, i, 0, 0)) {}
 
