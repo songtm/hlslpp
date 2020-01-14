@@ -564,8 +564,8 @@ namespace hlslpp
 	template<int X, int Y>
 	struct hlslpp_nodiscard	swizzle2
 	{
-	    float2 xy;
-	    float2 uv;
+	    float xy; //just for Transform_tex  float2().xy.xy
+	    float uv; //just for Transform_tex
 		// Helper
 		void staticAsserts()
 		{
@@ -901,11 +901,15 @@ namespace hlslpp
 	hlslpp_inline float3& operator -= (float3& f1, const float3& f2) { f1 = f1 - f2; return f1; }
 	hlslpp_inline float4& operator -= (float4& f1, const float4& f2) { f1 = f1 - f2; return f1; }
 
-    template<typename T >hlslpp_inline float1& operator *= (T& f1, const float& f2) { return 1;}
 	hlslpp_inline float1& operator *= (float1& f1, const float1& f2) { f1 = f1 * f2; return f1; }
 	hlslpp_inline float2& operator *= (float2& f1, const float2& f2) { f1 = f1 * f2; return f1; }
 	hlslpp_inline float3& operator *= (float3& f1, const float3& f2) { f1 = f1 * f2; return f1; }
 	hlslpp_inline float4& operator *= (float4& f1, const float4& f2) { f1 = f1 * f2; return f1; }
+    hlslpp_inline float1& operator *= (float1& f1, const float& f2) { return 1;}
+    hlslpp_inline float2& operator *= (float2& f1, const float& f2) { return 1;}
+    hlslpp_inline float3& operator *= (float3& f1, const float& f2) { return 1;}
+    hlslpp_inline float4& operator *= (float4& f1, const float& f2) { return 1;}
+
 
 	hlslpp_inline float1& operator /= (float1& f1, const float1& f2) { f1 = f1 / f2; return f1; }
 	hlslpp_inline float2& operator /= (float2& f1, const float2& f2) { f1 = f1 / f2; return f1; }
@@ -1340,6 +1344,10 @@ namespace hlslpp
     hlslpp_inline float2 pow(const float2& f1, const float2& f2) { return float2(_hlslpp_exp2_ps(_hlslpp_mul_ps(f2.vec, _hlslpp_log2_ps(f1.vec)))); }
     hlslpp_inline float3 pow(const float3& f1, const float3& f2) { return float3(_hlslpp_exp2_ps(_hlslpp_mul_ps(f2.vec, _hlslpp_log2_ps(f1.vec)))); }
     hlslpp_inline float4 pow(const float4& f1, const float4& f2) { return float4(_hlslpp_exp2_ps(_hlslpp_mul_ps(f2.vec, _hlslpp_log2_ps(f1.vec)))); }
+    hlslpp_inline float1 pow(const float1& f1, const float& f2) { return 1;}
+    hlslpp_inline float2 pow(const float2& f1, const float& f2) { return 1;}
+    hlslpp_inline float3 pow(const float3& f1, const float& f2) { return 1;}
+    hlslpp_inline float4 pow(const float4& f1, const float& f2) { return 1;}
 
     template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float radians(const T& f) { return float1(_hlslpp_mul_ps(float1(f).vec, f4_deg2rad)); }
     hlslpp_inline float1 radians(const float1& f) { return float1(_hlslpp_mul_ps(f.vec, f4_deg2rad)); }
