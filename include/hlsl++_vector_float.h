@@ -564,8 +564,9 @@ namespace hlslpp
 	template<int X, int Y>
 	struct hlslpp_nodiscard	swizzle2
 	{
+	    float2 xy;
+	    float2 uv;
 		// Helper
-
 		void staticAsserts()
 		{
 			static_assert(X != Y, "\"l-value specifies const object\" No component can be equal for assignment.");
@@ -900,6 +901,7 @@ namespace hlslpp
 	hlslpp_inline float3& operator -= (float3& f1, const float3& f2) { f1 = f1 - f2; return f1; }
 	hlslpp_inline float4& operator -= (float4& f1, const float4& f2) { f1 = f1 - f2; return f1; }
 
+    template<typename T >hlslpp_inline float1& operator *= (T& f1, const float& f2) { return 1;}
 	hlslpp_inline float1& operator *= (float1& f1, const float1& f2) { f1 = f1 * f2; return f1; }
 	hlslpp_inline float2& operator *= (float2& f1, const float2& f2) { f1 = f1 * f2; return f1; }
 	hlslpp_inline float3& operator *= (float3& f1, const float3& f2) { f1 = f1 * f2; return f1; }
