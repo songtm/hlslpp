@@ -92,7 +92,7 @@ namespace hlslpp
 
 		template<typename T>
 		explicit hlslpp_inline float3x1(T f, hlslpp_enable_if_number(T)) : vec(_hlslpp_set_ps(float(f), float(f), float(f), 0.0f)) {}
-
+        operator float3() {return 1;}
 		explicit hlslpp_inline float3x1(float f0, float f1, float f2) : vec(_hlslpp_set_ps(f0, f1, f2, 0.0f)) {}
 
 		hlslpp_inline float3x1(const float3& f) : vec(f.vec) {}
