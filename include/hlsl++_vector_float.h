@@ -1192,6 +1192,26 @@ namespace hlslpp
     hlslpp_inline float3 degrees(const float3& f) { return float3(_hlslpp_mul_ps(f.vec, f4_rad2deg)); }
     hlslpp_inline float4 degrees(const float4& f) { return float4(_hlslpp_mul_ps(f.vec, f4_rad2deg)); }
 
+
+    hlslpp_inline float fwidth(float var) { return 1.0;}
+    hlslpp_inline float1 fwidth(const float1& f1) { return 1.0;}
+    hlslpp_inline float2 fwidth(const float2& f1) { return 1.0;}
+    hlslpp_inline float3 fwidth(const float3& f1) { return 1.0;}
+    hlslpp_inline float4 fwidth(const float4& f1) { return 1.0;}
+
+    hlslpp_inline float ddx(float var) { return 1.0;}
+    hlslpp_inline float1 ddx(const float1& f1) { return 1.0;}
+    hlslpp_inline float2 ddx(const float2& f1) { return 1.0;}
+    hlslpp_inline float3 ddx(const float3& f1) { return 1.0;}
+    hlslpp_inline float4 ddx(const float4& f1) { return 1.0;}
+
+
+    hlslpp_inline float ddy(float var) { return 1.0;}
+    hlslpp_inline float1 ddy(const float1& f1) { return 1.0;}
+    hlslpp_inline float2 ddy(const float2& f1) { return 1.0;}
+    hlslpp_inline float3 ddy(const float3& f1) { return 1.0;}
+    hlslpp_inline float4 ddy(const float4& f1) { return 1.0;}
+
     template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float dot(const T& f1, const T& f2) { return f1 * f2; }
     hlslpp_inline float dot(const float1& f1, const float1& f2) { return f1 * f2; }
     hlslpp_inline float dot(const float2& f1, const float2& f2) { return float1(_hlslpp_dot2_ps(f1.vec, f2.vec)); }
@@ -1425,7 +1445,7 @@ namespace hlslpp
     hlslpp_inline float3 sqrt(const float3& f) { return float3(_hlslpp_sqrt_ps(f.vec)); }
     hlslpp_inline float4 sqrt(const float4& f) { return float4(_hlslpp_sqrt_ps(f.vec)); }
 
-    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float step(const T& f1, const T& x) { return float1(_hlslpp_step_ps(float1(f1).vec, float1(x).vec)); }
+    template <typename T, typename Y, hlslpp_enable_if_number(T)> hlslpp_inline float step(const T& f1, const Y& x) { return float1(_hlslpp_step_ps(float1(f1).vec, float1(x).vec)); }
     hlslpp_inline float1 step(const float1& f1, const float1& x) { return float1(_hlslpp_step_ps(f1.vec, x.vec)); }
     hlslpp_inline float2 step(const float2& f1, const float2& x) { return float2(_hlslpp_step_ps(f1.vec, x.vec)); }
     hlslpp_inline float3 step(const float3& f1, const float3& x) { return float3(_hlslpp_step_ps(f1.vec, x.vec)); }
