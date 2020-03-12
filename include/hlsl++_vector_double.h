@@ -1487,7 +1487,8 @@ namespace hlslpp
 		return double4(_hlslpp_lerp_pd(f1.vec0, f2.vec0, a.vec0), _hlslpp_lerp_pd(f1.vec1, f2.vec1, a.vec1));
 #endif
 	}
-
+    hlslpp_inline float min(float f1, double f2) {}
+    hlslpp_inline float min(double f1, float f2) {}
 	hlslpp_inline double1 min(const double1& f1, const double1& f2) { return double1(_hlslpp_min_pd(f1.vec, f2.vec)); }
 	hlslpp_inline double2 min(const double2& f1, const double2& f2) { return double2(_hlslpp_min_pd(f1.vec, f2.vec)); }
 	hlslpp_inline double3 min(const double3& f1, const double3& f2)
@@ -1527,7 +1528,8 @@ namespace hlslpp
 		return double4(_hlslpp_madd_pd(f1.vec0, f2.vec0, f3.vec0), _hlslpp_madd_pd(f1.vec1, f2.vec1, f3.vec1));
 #endif
 	}
-
+    hlslpp_inline float max( double f1,  float f2) {}
+    hlslpp_inline float max( float f1,  double f2) {}
 	hlslpp_inline double1 max(const double1& f1, const double1& f2) { return double1(_hlslpp_max_pd(f1.vec, f2.vec)); }
 	hlslpp_inline double2 max(const double2& f1, const double2& f2) { return double2(_hlslpp_max_pd(f1.vec, f2.vec)); }
 	hlslpp_inline double3 max(const double3& f1, const double3& f2)
