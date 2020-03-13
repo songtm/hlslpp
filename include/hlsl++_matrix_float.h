@@ -282,7 +282,7 @@ namespace hlslpp
 		explicit hlslpp_inline float3x3(const n128 vec0, const n128 vec1, const n128 vec2) : vec0(vec0), vec1(vec1), vec2(vec2) {}
         explicit hlslpp_inline float3x3(const float3 vec0, const float3 vec1, const float3 vec2) {} //just for tip
 
-		explicit hlslpp_inline float3x3(float f00, float f01, float f02,
+		 hlslpp_inline float3x3(float f00, float f01, float f02,
 		                  float f10, float f11, float f12,
 		                  float f20, float f21, float f22) : vec0(_hlslpp_set_ps(f00, f01, f02, 0.0f)), vec1(_hlslpp_set_ps(f10, f11, f12, 0.0f)), vec2(_hlslpp_set_ps(f20, f21, f22, 0.0f)) {}
 
@@ -470,7 +470,7 @@ namespace hlslpp
 
 		explicit hlslpp_inline float4x4(const n128& vec0, const n128& vec1, const n128& vec2, const n128& vec3) : vec0(vec0), vec1(vec1), vec2(vec2), vec3(vec3) {}
 
-		explicit hlslpp_inline float4x4(
+		 hlslpp_inline float4x4(
 			float f00, float f01, float f02, float f03,
 			float f10, float f11, float f12, float f13,
 			float f20, float f21, float f22, float f23,
