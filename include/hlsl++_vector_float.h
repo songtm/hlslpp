@@ -564,8 +564,8 @@ namespace hlslpp
 	template<int X, int Y>
 	struct hlslpp_nodiscard	swizzle2
 	{
-	    float xy; //just for Transform_tex  float2().xy.xy
-	    float uv; //just for Transform_tex
+	    float xy; //songtm 2020.03.13just for Transform_tex  float2().xy.xy
+	    float uv; //just for Transform_tex////songtm这里类型推导会出错， 但不能用float2
 		// Helper
 		void staticAsserts()
 		{
@@ -617,6 +617,8 @@ namespace hlslpp
 	template<int X, int Y, int Z>
 	struct hlslpp_nodiscard	swizzle3
 	{
+        float z; //songtm 2020.03.13just for Transform_tex  float3().xyz.z
+        float xy;//songtm这里类型推导会出错， 但不能用float2
 		void staticAsserts()
 		{
 			static_assert(X != Y && X != Z && Y != Z, "\"l-value specifies const object\" No component can be equal for assignment.");
@@ -808,7 +810,7 @@ namespace hlslpp
 
 		template<typename T>
 		float4(T f, hlslpp_enable_if_number(T)) : vec(_hlslpp_set1_ps(float(f))) {}
-
+        float operator [](int i) {return 1;}
 		template<typename T1, typename T2, typename T3, typename T4>
 		hlslpp_inline float4(T1 f1, T2 f2, T3 f3, T4 f4, hlslpp_enable_if_number_4(T1, T2, T3, T4)) : vec(_hlslpp_set_ps(float(f1), float(f2), float(f3), float(f4))) {}
 
@@ -1061,12 +1063,14 @@ namespace hlslpp
 	template<int X, int Y> hlslpp_inline swizzle2<X, Y>& operator -= (swizzle2<X, Y>& s, const float2& f) { s = float2(s) - f; return s; }
 	template<int X, int Y> hlslpp_inline swizzle2<X, Y>& operator *= (swizzle2<X, Y>& s, const float2& f) { s = float2(s) * f; return s; }
 	template<int X, int Y> hlslpp_inline swizzle2<X, Y>& operator /= (swizzle2<X, Y>& s, const float2& f) { s = float2(s) / f; return s; }
+    template<int X, int Y> hlslpp_inline swizzle2<X, Y>& operator /= (swizzle2<X, Y>& s, float f) { s = float2(s) / f; return s; }
 	template<int X, int Y> hlslpp_inline swizzle2<X, Y>& operator %= (swizzle2<X, Y>& s, const float2& f) { s = float2(s) % f; return s; }
 
 	template<int X, int Y, int Z> hlslpp_inline swizzle3<X, Y, Z>& operator += (swizzle3<X, Y, Z>& s, const float3& f) { s = float3(s) + f; return s; }
 	template<int X, int Y, int Z> hlslpp_inline swizzle3<X, Y, Z>& operator -= (swizzle3<X, Y, Z>& s, const float3& f) { s = float3(s) - f; return s; }
 	template<int X, int Y, int Z> hlslpp_inline swizzle3<X, Y, Z>& operator *= (swizzle3<X, Y, Z>& s, const float3& f) { s = float3(s) * f; return s; }
 	template<int X, int Y, int Z> hlslpp_inline swizzle3<X, Y, Z>& operator /= (swizzle3<X, Y, Z>& s, const float3& f) { s = float3(s) / f; return s; }
+    template<int X, int Y, int Z> hlslpp_inline swizzle3<X, Y, Z>& operator /= (swizzle3<X, Y, Z>& s, float f) { s = float3(s) / f; return s; }
 	template<int X, int Y, int Z> hlslpp_inline swizzle3<X, Y, Z>& operator %= (swizzle3<X, Y, Z>& s, const float3& f) { s = float3(s) % f; return s; }
 
 	template<int X, int Y, int Z, int W> hlslpp_inline swizzle4<X, Y, Z, W>& operator += (swizzle4<X, Y, Z, W>& s, const float4& f) { s = float4(s) + f; return s; }
@@ -1275,7 +1279,7 @@ namespace hlslpp
     hlslpp_inline float1 length(const float3& f) { return float1(_hlslpp_sqrt_ps(_hlslpp_dot3_ps(f.vec, f.vec))); }
     hlslpp_inline float1 length(const float4& f) { return float1(_hlslpp_sqrt_ps(_hlslpp_dot4_ps(f.vec, f.vec))); }
 
-    template <typename T, hlslpp_enable_if_number(T)> hlslpp_inline float lerp(const T& f1, const T& f2, const T& a) { return float1(_hlslpp_lerp_ps(float1(f1).vec, float1(f2).vec, float1(a).vec)); }
+    template <typename T, typename S, typename Y, hlslpp_enable_if_number(T), hlslpp_enable_if_number(S), hlslpp_enable_if_number(Y)> hlslpp_inline float lerp(T f1, S f2, Y a) { return 1.0; }
     hlslpp_inline float1 lerp(const float1& f1, const float1& f2, const float1& a) { return float1(_hlslpp_lerp_ps(f1.vec, f2.vec, a.vec)); }
     hlslpp_inline float2 lerp(const float2& f1, const float2& f2, const float2& a) { return float2(_hlslpp_lerp_ps(f1.vec, f2.vec, a.vec)); }
     hlslpp_inline float3 lerp(const float3& f1, const float3& f2, const float3& a) { return float3(_hlslpp_lerp_ps(f1.vec, f2.vec, a.vec)); }
